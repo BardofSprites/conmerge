@@ -1,7 +1,12 @@
-(ns conmerge.core
-  (:require [conmerge.merging-logic :as merging]))
+(ns conmerge.core)
 
-(defn -main [& args]
-  (let [test-input "src/conmerge/test.csv"]
-    (let [contacts (merging/parse-csv test-input)]
-      (merging/print-contacts (rest contacts)))))
+(defn print-input [file-path]
+  (with-open [reader (clojure.java.io/reader file-path)]
+    (doseq [line (line-seq reader)]
+      (println line))))
+
+(defn main []
+  (let [file-path "src/conmerge/test.txt"]
+    (print-input file-path)))
+
+(main)
