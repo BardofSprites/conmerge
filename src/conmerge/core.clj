@@ -5,8 +5,22 @@
     (doseq [line (line-seq reader)]
       (println line))))
 
-(defn main []
-  (let [file-path "src/conmerge/test.txt"]
-    (print-input file-path)))
+(defn parse-contact-info [file-path]
+  (with-open [reader (clojure.java.io/reader file-path)]
+    (let [lines (line-seq reader)
+          result (reduce (fn [acc line]
+                           (if (empty? line)
+                             (if (empty? acc)
+                               acc
+                               (conj acc {}))
+                             (let [last-map (peek acc)
+                                   [key value] (re-matches #"\s*([^:]+):\s*(.*)" line)]
+                               (conj (pop acc) (assoc last-map (keyword key) value)))))
+                         [{}]
+                         lines)]
+      result)))
 
-(main)
+(defn -main []
+  (let [file-path "src/conmerge/test.txt"
+        contact-info (parse-contact-info file-path)]
+    (println contact-info)))
