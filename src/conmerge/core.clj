@@ -21,6 +21,8 @@
       result)))
 
 (defn -main []
-  (let [file-path "src/conmerge/test.txt"
+  (println "Define your contact file")
+  (let [file-path (read-line)
         contact-info (parse-contact-info file-path)]
+    (println "Contacts: ")
     (println contact-info)))
