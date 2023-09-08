@@ -1,0 +1,7 @@
+Name: John Doe
+Cellphone: 123-456-7890
+Email: john.doe@mail.com
+
+Name: Jane Doe
+Cellphone: 098-765-4321
+Email: jane.doe@mail.com
