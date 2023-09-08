@@ -1,10 +1,5 @@
 (ns conmerge.core)
 
-(defn print-input [file-path]
-  (with-open [reader (clojure.java.io/reader file-path)]
-    (doseq [line (line-seq reader)]
-      (println line))))
-
 (defn parse-contact-info [file-path]
   (try
     (with-open [reader (clojure.java.io/reader file-path)]
