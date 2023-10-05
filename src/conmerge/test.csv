@@ -1,2 +1,2 @@
-Name,Email,Phone,Address
-John Doe,john@example.com,123-456-7890,123 Main St, Cityville, USA
+first-name,last-name,phone-number,email,address
+john,doe,123-234-4556,john@gmail.com,123 Sesame Street
