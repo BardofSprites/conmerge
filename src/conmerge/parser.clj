@@ -23,5 +23,5 @@
     (let [header (map keyword (first csv-data))
           data (rest csv-data)]
       (mapv (fn [row]
-              (apply ->contact (map keyword row)))
+              (apply ->contact row))
             data))))
